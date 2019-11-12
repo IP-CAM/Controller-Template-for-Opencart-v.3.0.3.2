@@ -28,7 +28,7 @@ class YourController extends Controller{
             $this->model_setting_setting->editSetting($this->extension_code, $this->request->post);
             $this->session->data["success"] = $this->language->get("text_success");
             $this->response->redirect($this->url->link($this->extension_code, 
-				'token=' . $this->session->data['token'] . '&type=' . $this->extension_type, true));
+				'user_token=' . $this->session->data['user_token'] . '&type=' . $this->extension_type, true));
         }
 		
 		$data["error_warning"] = "";
@@ -47,21 +47,21 @@ class YourController extends Controller{
 
         $data["breadcrumbs"][] = array(
             "text" => $this->language->get("text_home"),
-            "href" => $this->url->link("common/dashboard", "token=" . $this->session->data["token"], true)
+            "href" => $this->url->link("common/dashboard", "user_token=" . $this->session->data["user_token"], true)
         );
 
         $data["breadcrumbs"][] = array(
             "text" => $this->language->get("text_extension"),
-            "href" => $this->url->link($this->url_path, "token=" . $this->session->data["token"] . "&type=" . $this->extension_type, true)
+            "href" => $this->url->link($this->url_path, "user_token=" . $this->session->data["user_token"] . "&type=" . $this->extension_type, true)
         );
 
         $data["breadcrumbs"][] = array(
             "text" => $this->language->get("heading_title"),
-            "href" => $this->url->link($this->extension_path . $this->extension_code, "token=" . $this->session->data["token"], true)
+            "href" => $this->url->link($this->extension_path . $this->extension_code, "user_token=" . $this->session->data["user_token"], true)
         );
 		
-		$data["action"] = $this->url->link($this->extension_path . $this->extension_code, "token=" . $this->session->data["token"], true);
-        $data["cancel"] = $this->url->link($this->url_path, "token=" . $this->session->data["token"] . "&type=" . $this->extension_type, true);
+		$data["action"] = $this->url->link($this->extension_path . $this->extension_code, "user_token=" . $this->session->data["user_token"], true);
+        $data["cancel"] = $this->url->link($this->url_path, "user_token=" . $this->session->data["user_token"] . "&type=" . $this->extension_type, true);
 		
 		$data["heading_title"] = $this->language->get("heading_title");
         $data["button_save"] = $this->language->get("button_save");
