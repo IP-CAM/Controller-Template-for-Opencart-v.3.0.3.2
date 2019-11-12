@@ -1,5 +1,9 @@
 <?php
-
+/**
+	ver 1.0.0.1
+	rev 12.11.2019
+	anatoliy.iwanov@yandex.ru
+*/
 class YourController extends Controller{
 	
 	private $error = array();
@@ -74,10 +78,15 @@ class YourController extends Controller{
 		
 	}
 	
+	/**
+	ver 1.0.0.1
+	rev 12.11.2019
+	anatoliy.iwanov@yandex.ru
+	*/
 	//poprietary
     protected function validate() {
 
-        if (!$this->user->hasPermission('modify', 'module/mssync')) {
+        if (!$this->user->hasPermission('modify', $this->extension_path . $this->extension_code)) {
             $this->error['warning'] = $this->language->get('error_permission');
         }
 
